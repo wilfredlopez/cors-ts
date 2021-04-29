@@ -45,7 +45,7 @@ interface CorsRes {
 
 type CorsNextFunc = (err?: any) => any
 
-export default function cors<T extends CorsRequest = CorsRequest, Res extends CorsRes = CorsRes, Next extends CorsNextFunc = CorsNextFunc>(options: CorsOptions | CorsOptionsDelegate<T> | undefined = {}): (
+function cors<T extends CorsRequest = CorsRequest, Res extends CorsRes = CorsRes, Next extends CorsNextFunc = CorsNextFunc>(options: CorsOptions | CorsOptionsDelegate<T> | undefined = {}): (
     req: T,
     res: Res,
     next: Next
@@ -298,3 +298,5 @@ export default function cors<T extends CorsRequest = CorsRequest, Res extends Co
 }
 
 
+
+export default cors
