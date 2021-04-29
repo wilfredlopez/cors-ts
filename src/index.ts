@@ -45,7 +45,7 @@ interface CorsRes {
 
 type CorsNextFunc = (err?: any) => any
 
-function cors<T extends CorsRequest = CorsRequest, Res extends CorsRes = CorsRes, Next extends CorsNextFunc = CorsNextFunc>(options: CorsOptions | CorsOptionsDelegate<T> | undefined = {}): (
+export function cors<T extends CorsRequest = CorsRequest, Res extends CorsRes = CorsRes, Next extends CorsNextFunc = CorsNextFunc>(options: CorsOptions | CorsOptionsDelegate<T> | undefined = {}): (
     req: T,
     res: Res,
     next: Next
