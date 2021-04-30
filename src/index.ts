@@ -1,3 +1,5 @@
+import { vary } from './vary'
+import assign from './object-assign'
 import type { IncomingHttpHeaders } from 'http'
 
 type StaticOrigin = boolean | string | RegExp | (string | RegExp)[]
@@ -51,8 +53,6 @@ export function cors<T extends CorsRequest = CorsRequest, Res extends CorsRes = 
     next: Next
 ) => void {
 
-    const assign = require('object-assign')
-    const vary = require('vary')
 
     const defaults = {
         origin: '*',
@@ -283,7 +283,7 @@ export function cors<T extends CorsRequest = CorsRequest, Res extends CorsRes = 
                             if (err2 || !origin) {
                                 next(err2)
                             } else {
-                                corsOptions.origin = origin
+                                corsOptions.origin = origin as any
                                 corsTs(corsOptions, req, res, next)
                             }
                         })
